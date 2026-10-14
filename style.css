@@ -1,0 +1,861 @@
+/* ==========================================================================
+   STYLE.CSS - P!RACA (50% Tecnologia & 50% Psicodelia)
+   Conceito: Cyber-Terminal Escuro + Aurora Cósmica & Glassmorphism Editorial
+   Compatível com GitHub Pages e 100% Responsivo
+   ========================================================================== */
+
+:root {
+  /* Fundo Noturno */
+  --bg-deep: #050a07;
+  --bg-surface: #0a130e;
+  --bg-card: rgba(12, 22, 17, 0.78);
+  --bg-card-hover: rgba(16, 30, 23, 0.92);
+
+  /* 50% Tecnologia (Windows 98, Terminal, Cyan e Fósforo Verde) */
+  --tech-teal: #008080;
+  --tech-cyan: #38bdf8;
+  --tech-mint: #00ff88;
+  --tech-emerald: #10b981;
+  --tech-gray: #c0c0c0;
+  --tech-blue-start: #000080;
+  --tech-blue-end: #1084d0;
+
+  /* 50% Psicodelia (Aurora Cósmica, Lilás, Âmbar, Rosa e Coral) */
+  --psyche-lilac: #c084fc;
+  --psyche-violet: #a855f7;
+  --psyche-rose: #f472b6;
+  --psyche-amber: #fbbf24;
+  --psyche-coral: #fb7185;
+
+  /* Textos */
+  --text-primary: #f2f7f3;
+  --text-reading: #e0ece3;
+  --text-soft: #a8c6b2;
+  --text-muted: #6b8f77;
+
+  /* Bordas e Efeitos de Vidro */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-tech: rgba(56, 189, 248, 0.3);
+  --border-psyche: rgba(192, 132, 252, 0.3);
+  --border-mint: rgba(0, 255, 136, 0.35);
+
+  /* Fontes */
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'Share Tech Mono', 'Fira Code', monospace;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-reading);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(0, 255, 136, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(192, 132, 252, 0.09) 0%, transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(251, 191, 36, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Background Canvas Animado para Frequências/Partículas */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scanlines Retrô Leves */
+body::after {
+  content: ' ';
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(10, 16, 12, 0) 50%, rgba(0, 0, 0, 0.06) 50%);
+  z-index: 2;
+  background-size: 100% 6px;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+  position: relative;
+  z-index: 10;
+}
+
+/* -------------------------------------------------------------
+   TOP NAV / STATUS BAR
+   ------------------------------------------------------------- */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: rgba(10, 20, 15, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--tech-mint);
+  letter-spacing: 0.06em;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--tech-mint);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--tech-mint);
+  animation: pulseNeon 2s infinite ease-in-out;
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.nav-signature {
+  color: var(--psyche-lilac);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.code-bracket {
+  color: var(--tech-cyan);
+}
+
+/* -------------------------------------------------------------
+   PROFILE HERO SECTION (AVATAR + BIO DUAL)
+   ------------------------------------------------------------- */
+.profile-hero {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  align-items: stretch;
+  margin-bottom: 45px;
+}
+
+/* Avatar Column */
+.avatar-column {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-mint);
+  border-radius: 12px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(0, 255, 136, 0.1);
+}
+
+.avatar-frame-cyber {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  perspective: 1000px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.avatar-frame-cyber:hover .avatar-glow-ring {
+  box-shadow: 0 0 28px rgba(0, 255, 136, 0.55);
+}
+
+.avatar-glow-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tech-mint), var(--tech-cyan), var(--psyche-lilac), var(--psyche-rose));
+  z-index: 1;
+  animation: spinRing 12s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.35);
+}
+
+@keyframes spinRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.avatar-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+}
+
+.avatar-frame-cyber.is-flipped .avatar-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.avatar-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.avatar-front {
+  transform: rotateY(0deg);
+}
+
+.avatar-back {
+  transform: rotateY(180deg);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #09140e;
+  border: 3px solid #050a07;
+  display: block;
+}
+
+.avatar-tag-scan {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #050a07;
+  border: 1px solid var(--tech-mint);
+  color: var(--tech-mint);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 1px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  z-index: 3;
+  white-space: nowrap;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.avatar-frame-cyber.is-flipped .avatar-tag-scan {
+  border-color: var(--psyche-rose);
+  color: var(--psyche-rose);
+}
+
+.avatar-flip-hint {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: rgba(10, 20, 15, 0.9);
+  border: 1px solid var(--border-mint);
+  color: var(--tech-mint);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.avatar-frame-cyber:hover .avatar-flip-hint {
+  opacity: 1;
+  transform: scale(1.08);
+  color: #ffffff;
+  border-color: var(--tech-cyan);
+}
+
+.user-name {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #ffffff 20%, var(--tech-mint) 60%, var(--psyche-lilac) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  line-height: 1.4;
+}
+
+/* Bio Column (Window Terminal Style) */
+.bio-column {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+}
+
+.bio-window-header {
+  background: linear-gradient(90deg, #102018, #182830);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.bio-window-dots {
+  display: flex;
+  gap: 6px;
+}
+.win-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
+.bio-content-body {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.bio-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tech-icon {
+  font-size: 1.1rem;
+}
+
+.bio-heading h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.bio-block p {
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--text-reading);
+  line-height: 1.65;
+}
+
+/* Redes Sociais */
+.social-links-strip {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--tech-mint);
+  letter-spacing: 0.06em;
+}
+
+.social-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 4px; /* Border radius sóbrio */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.pill-svg {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+.pill-instagram:hover {
+  background: rgba(244, 114, 182, 0.15);
+  border-color: var(--psyche-rose);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(244, 114, 182, 0.35);
+  transform: translateY(-2px);
+}
+
+.pill-x:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--tech-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+.pill-lattes:hover {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: var(--psyche-amber);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.35);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+   DUAL PORTAL SECTION: OS 2 BLOGS (50% TECH / 50% PSICODELIA)
+   ------------------------------------------------------------- */
+.blogs-portal-section {
+  margin-bottom: 50px;
+}
+
+.portal-header-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tag-bar {
+  height: 1px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--border-mint), transparent);
+}
+
+.portal-header-tag h2 {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--tech-mint);
+  text-transform: uppercase;
+}
+
+.dual-blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+/* Cartões dos Portais */
+.portal-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border-radius: 8px; /* Border radius sóbrio */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.portal-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card Tech (Windows 98 Retrô) */
+.card-tech {
+  border: 1px solid var(--border-tech);
+}
+.card-tech:hover {
+  border-color: var(--tech-cyan);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.card-tech .card-os-header {
+  background: linear-gradient(90deg, var(--tech-blue-start), var(--tech-blue-end));
+  color: #ffffff;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.os-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.os-window-buttons {
+  display: flex;
+  gap: 3px;
+}
+
+.w98-mini-btn {
+  width: 14px;
+  height: 12px;
+  background: #c0c0c0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  cursor: default;
+}
+
+.btn-close {
+  background: #d9534f;
+  color: #ffffff;
+}
+
+/* Card Psyche (Aurora Cósmica) */
+.card-psyche {
+  border: 1px solid var(--border-psyche);
+}
+.card-psyche:hover {
+  border-color: var(--psyche-lilac);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(192, 132, 252, 0.25);
+}
+
+.card-psyche .card-os-header {
+  background: linear-gradient(90deg, #2e1065, #4c1d95, #701a75);
+  color: #fce7f3;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.psyche-freq-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--psyche-rose);
+  font-size: 0.75rem;
+}
+
+/* Conteúdo Interno dos Cards */
+.card-content {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.tech-badge {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--tech-cyan);
+}
+
+.mini-led {
+  width: 6px;
+  height: 6px;
+  background: var(--tech-mint);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--tech-mint);
+}
+
+.psyche-badge {
+  background: rgba(192, 132, 252, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  color: var(--psyche-lilac);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.tech-title {
+  color: #ffffff;
+}
+
+.psyche-title {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 40%, var(--psyche-lilac) 80%, var(--psyche-rose) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-description {
+  font-family: var(--font-main);
+  font-size: 0.94rem;
+  color: var(--text-reading);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.card-tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.cyber-chip {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #bae6fd;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.psyche-chip {
+  background: rgba(192, 132, 252, 0.08);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  color: #e9d5ff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.card-action-box {
+  margin-top: auto;
+}
+
+.btn-portal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: all 0.25s ease;
+}
+
+.btn-portal-tech {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(0, 255, 136, 0.15));
+  border: 1px solid var(--tech-cyan);
+  color: #ffffff;
+}
+.btn-portal-tech:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(0, 255, 136, 0.35));
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-portal-psyche {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.15), rgba(244, 114, 182, 0.15));
+  border: 1px solid var(--psyche-lilac);
+  color: #ffffff;
+}
+.btn-portal-psyche:hover {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.35), rgba(244, 114, 182, 0.35));
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+.btn-portal:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-portal-disabled {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  background: rgba(35, 35, 35, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #777777;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.btn-lock {
+  font-size: 0.95rem;
+  opacity: 0.6;
+}
+
+/* Card Portfólio (Preto e Branco / Em Desenvolvimento) */
+.card-portfolio {
+  grid-column: 1 / -1; /* Ocupa as 2 colunas abaixo dos blogs */
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: opacity 0.3s ease, filter 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-portfolio:hover {
+  opacity: 0.85;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.card-portfolio .portfolio-header {
+  background: linear-gradient(90deg, #2b2b2b, #151515);
+  color: #aaaaaa;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.portfolio-badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #bbbbbb;
+}
+
+.mini-led-offline {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #777777;
+  display: inline-block;
+  box-shadow: 0 0 3px #555555;
+}
+
+.portfolio-title {
+  color: #dddddd;
+}
+
+.portfolio-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #aaaaaa;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* -------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------- */
+.main-footer {
+  text-align: center;
+  padding: 30px 20px 20px;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-symbols {
+  color: var(--tech-mint);
+  letter-spacing: 0.4em;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVIDADE (MOBILE & TABLETS)
+   ------------------------------------------------------------- */
+@media (max-width: 780px) {
+  .profile-hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .dual-blog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .user-name {
+    font-size: 1.8rem;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}

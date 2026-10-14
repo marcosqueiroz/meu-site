@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <title>P!RACA | Lab TI &amp; Mente Psicodélica</title>
+
+  <!-- Google Fonts: Space Grotesk (Tech Editorial), Share Tech Mono (Código & Terminal) e Syne/Cormorant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&amp;family=Fira+Code:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background Canvas para Partículas Cósmicas / Frequências de Dados -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <div class="page-wrapper">
+    
+    <!-- Top Navigation / Status Header -->
+    <header class="top-nav">
+      <div class="nav-status">
+        <span class="status-indicator"></span>
+        <span class="status-text">SYS.STATUS: ONLINE // 50% TECH &bull; 50% PSYCHEDELIC</span>
+      </div>
+      <div class="nav-signature">
+        <span class="code-bracket">&lt;</span>piraca.dev<span class="code-bracket">/&gt;</span>
+      </div>
+    </header>
+
+    <main class="main-card-container">
+      
+      <!-- HERO SECTION: Perfil, Foto Holográfica & Bio -->
+      <section class="profile-hero">
+        
+        <div class="avatar-column">
+          <div class="avatar-frame-cyber" id="avatar-flip-card" role="button" tabindex="0" title="Clique para alternar a foto" aria-label="Foto de perfil. Clique para alternar entre as fotos.">
+            <div class="avatar-glow-ring"></div>
+            <div class="avatar-flip-inner">
+              <!-- Lado 1 (Frente): foto-perfil.jpg -->
+              <div class="avatar-face avatar-front">
+                <img 
+                  id="user-photo-1"
+                  src="img/foto-perfil.jpg" 
+                  alt="Foto de P!RACA (Tech / C++)" 
+                  class="avatar-image"
+                  onerror="this.onerror=null; this.src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyy2uU9FVHIZH9XMaGtyYGrWRRtKpWilcsixA_ZYHwj4XwnxjIlAf9i2jEzmyeKZSf9oEZ8xN55Mjdhni9_wP5AFUopm1gXArW0hUzBuWZb_d7w8xQUvVJCPK4o8tQHaZndSAFYV-CGdGeJVGGacOg90fSs5ByfXYT3mNEcBw7F7bWqaXMoXpfojKdkvc/s32/7-autor.png';"
+                />
+              </div>
+              <!-- Lado 2 (Verso): foto-perfil-2.jpg -->
+              <div class="avatar-face avatar-back">
+                <img 
+                  id="user-photo-2"
+                  src="img/foto-perfil-2.jpg" 
+                  alt="Foto de P!RACA (Poético / Livre)" 
+                  class="avatar-image"
+                  onerror="this.onerror=null; this.src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyy2uU9FVHIZH9XMaGtyYGrWRRtKpWilcsixA_ZYHwj4XwnxjIlAf9i2jEzmyeKZSf9oEZ8xN55Mjdhni9_wP5AFUopm1gXArW0hUzBuWZb_d7w8xQUvVJCPK4o8tQHaZndSAFYV-CGdGeJVGGacOg90fSs5ByfXYT3mNEcBw7F7bWqaXMoXpfojKdkvc/s32/7-autor.png';"
+                />
+              </div>
+            </div>
+            <div class="avatar-tag-scan" id="avatar-tag-label">NODE_01 // TECH</div>
+            <div class="avatar-flip-hint">⟳ clique</div>
+          </div>
+
+          <div class="user-identity">
+            <h1 class="user-name">P!RACA</h1>
+            <p class="user-tagline">SysAdmin &bull; Dev &bull; Poeta das Madrugadas</p>
+          </div>
+        </div>
+
+        <div class="bio-column">
+          <div class="bio-window-header">
+            <div class="bio-window-dots">
+              <span class="win-dot dot-red"></span>
+              <span class="win-dot dot-yellow"></span>
+              <span class="win-dot dot-green"></span>
+            </div>
+            <span class="bio-window-title">identity_kernel.sh</span>
+          </div>
+
+          <div class="bio-content-body">
+            <!-- Sobre o Trabalho -->
+            <div class="bio-block">
+              <div class="bio-heading">
+                <span class="tech-icon">💻</span>
+                <h3>O que eu faço</h3>
+              </div>
+              <p>
+                Atuo na infraestrutura de TI, administração de servidores Windows e Linux, projetos de redes e implantação e manutenção de ambientes de monitoramento com Zabbix, Grafana e PRTG. Também desenvolvo aplicações em PHP e Python, integro sistemas por meio de APIs e transformo problemas complexos em soluções práticas, eficientes e resilientes. Há mais de 10 anos, compartilho conhecimento como professor no ensino superior, nos cursos de Ciência da Computação e Sistemas de Informação, ensinando linguagens como C, Python, Java, Kotlin, PHP e JavaScript. Entre servidores, códigos e salas de aula, sigo explorando novas tecnologias e aprendendo a cada projeto.
+              </p>
+            </div>
+
+            <!-- Sobre os Hobbies e Lado Criativo -->
+            <div class="bio-block">
+              <div class="bio-heading">
+                <span class="tech-icon">🌌</span>
+                <h3>Devaneios &amp; Hobbies</h3>
+              </div>
+              <p>
+                Atuo na infraestrutura de TI, administração de servidores Windows e Linux, projetos de redes e implantação e manutenção de ambientes de monitoramento com Zabbix, Grafana e PRTG. Também desenvolvo aplicações em PHP e Python, integro sistemas por meio de APIs e transformo problemas complexos em soluções práticas, eficientes e resilientes. Há mais de 10 anos, compartilho conhecimento como professor no ensino superior, nos cursos de Ciência da Computação e Sistemas de Informação, ensinando linguagens como C, Python, Java, Kotlin, PHP e JavaScript. Entre servidores, códigos e salas de aula, sigo explorando novas tecnologias e aprendendo a cada projeto.
+              </p>
+            </div>
+
+            <!-- Redes Sociais e Lattes -->
+            <div class="social-links-strip">
+              <span class="social-label">// CONEXÕES:</span>
+              <div class="social-buttons-group">
+                
+                <!-- Instagram -->
+                <a href="https://instagram.com/marcos.piraca" target="_blank" rel="noopener noreferrer" class="social-pill pill-instagram" title="Instagram de P!RACA">
+                  <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+
+                <!-- X (Twitter) -->
+                <a href="https://x.com/marcos_piraca" target="_blank" rel="noopener noreferrer" class="social-pill pill-x" title="X (Twitter) de P!RACA">
+                  <svg class="pill-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                  </svg>
+                  <span>X (Twitter)</span>
+                </a>
+
+                <!-- Currículo Lattes -->
+                <a href="http://lattes.cnpq.br/8698805603595480" target="_blank" rel="noopener noreferrer" class="social-pill pill-lattes" title="Currículo Lattes">
+                  <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="9" y1="6" x2="16" y2="6"></line>
+                    <line x1="9" y1="10" x2="16" y2="10"></line>
+                  </svg>
+                  <span>Lattes</span>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- PORTAL DUPLO: Os 2 Blogs (50% Tecnologia / 50% Psicodelia) -->
+      <section class="blogs-portal-section">
+        <div class="portal-header-tag">
+          <span class="tag-bar"></span>
+          <h2>PORTAIS PARALELOS</h2>
+          <span class="tag-bar"></span>
+        </div>
+
+        <div class="dual-blog-grid">
+          
+          <!-- CARD 1: MEU LAB TI (50% Tecnologia / Windows 98 Retrô) -->
+          <article class="portal-card card-tech">
+            <div class="card-ambient-light"></div>
+            
+            <div class="card-os-header">
+              <div class="os-icon-title">
+                <span class="os-icon">💻</span>
+                <span class="os-name">Meu Lab TI - P!RACA</span>
+              </div>
+              <div class="os-window-buttons">
+                <span class="w98-mini-btn">_</span>
+                <span class="w98-mini-btn">&#9633;</span>
+                <span class="w98-mini-btn btn-close">&#10005;</span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="card-badge tech-badge">
+                <span class="mini-led"></span>
+                <span>RETRO LAB // SYSADMIN</span>
+              </div>
+
+              <h3 class="card-title tech-title">Meu Lab TI</h3>
+              
+              <p class="card-description">
+                Artigos práticos de infraestrutura, comandos Linux, monitoramento com Zabbix &amp; Grafana, banco de dados, redes e preservação de sistemas operacionais e jogos retrô.
+              </p>
+
+              <div class="card-tags-cloud">
+                <span class="cyber-chip">#Linux</span>
+                <span class="cyber-chip">#Zabbix</span>
+                <span class="cyber-chip">#Grafana</span>
+                <span class="cyber-chip">#Win98</span>
+                <span class="cyber-chip">#Servidores</span>
+              </div>
+
+              <div class="card-action-box">
+                <a href="meulabti.piraca.com.br/" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-tech">
+                  <span>INICIAR SISTEMA</span>
+                  <span class="btn-arrow">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: EU E MINHA MENTE PSICODÉLICA 4.0 (50% Psicodelia / Poesias) -->
+          <article class="portal-card card-psyche">
+            <div class="card-ambient-light"></div>
+            
+            <div class="card-os-header psyche-header">
+              <div class="os-icon-title">
+                <span class="os-icon">🧠</span>
+                <span class="os-name">mente_psicodelica_4.0.sh</span>
+              </div>
+              <div class="psyche-freq-indicator">
+                <span class="wave-symbol">∿∿∿</span>
+                <span>4.0 GHz</span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="card-badge psyche-badge">
+                <span>🌙</span>
+                <span>LUNÁTICAS POÉTICAS // AURORA</span>
+              </div>
+
+              <h3 class="card-title psyche-title">eu e minha mente psicodélica 4.0</h3>
+              
+              <p class="card-description">
+                Poesias lunáticas, crônicas do cotidiano, posts de escape na madrugada e fluxos mentais sem filtro. Um refúgio lírico forjado sob a luz das auroras interiores.
+              </p>
+
+              <div class="card-tags-cloud">
+                <span class="psyche-chip">#Lunáticas Poéticas</span>
+                <span class="psyche-chip">#Post de escape</span>
+                <span class="psyche-chip">#Reflexões</span>
+                <span class="psyche-chip">#Sonhos loucos</span>
+              </div>
+
+              <div class="card-action-box">
+                <a href="poesias.piraca.com.br/" target="_blank" rel="noopener noreferrer" class="btn-portal btn-portal-psyche">
+                  <span>SINTONIZAR FREQUÊNCIA</span>
+                  <span class="btn-arrow">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: PORTFÓLIO DE PROJETOS (Em Desenvolvimento / Preto e Branco) -->
+          <article class="portal-card card-portfolio card-disabled">
+            <div class="card-ambient-light"></div>
+            
+            <div class="card-os-header portfolio-header">
+              <div class="os-icon-title">
+                <span class="os-icon">📁</span>
+                <span class="os-name">portfolio_v1.0.dev [OFFLINE]</span>
+              </div>
+              <div class="os-window-buttons">
+                <span class="w98-mini-btn">_</span>
+                <span class="w98-mini-btn">&#9633;</span>
+                <span class="w98-mini-btn btn-close">&#10005;</span>
+              </div>
+            </div>
+
+            <div class="card-content">
+              <div class="card-badge portfolio-badge">
+                <span class="mini-led-offline"></span>
+                <span>STATUS // EM CONSTRUÇÃO</span>
+              </div>
+
+              <h3 class="card-title portfolio-title">Portfólio &amp; Projetos</h3>
+              
+              <p class="card-description">
+                Repositórios de código, automações, scripts de administração de sistemas Linux, dashboards de monitoramento e projetos open-source. Área em desenvolvimento.
+              </p>
+
+              <div class="card-tags-cloud">
+                <span class="portfolio-chip">#Projetos</span>
+                <span class="portfolio-chip">#OpenSource</span>
+                <span class="portfolio-chip">#SysAdmin</span>
+                <span class="portfolio-chip">#Dev</span>
+                <span class="portfolio-chip">#GitHub</span>
+              </div>
+
+              <div class="card-action-box">
+                <button type="button" class="btn-portal btn-portal-disabled" disabled aria-disabled="true" title="Portfólio em desenvolvimento">
+                  <span>EM CONSTRUÇÃO</span>
+                  <span class="btn-lock">🔒</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Minimalista & Retrô-Cósmico -->
+    <footer class="main-footer">
+      <div class="footer-symbols">✦ ∿∿∿ 💻 ∿∿∿ ✦</div>
+      <p>P!RACA &copy; <span id="current-year"></span> &bull; Entre a lógica dos circuitos e o delírio da poesia</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
